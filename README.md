@@ -18,7 +18,7 @@ The repository includes everything needed to build an LED strip music visualizer
   - Constructing 1D visualizations ([visualization.py](python/visualization.py))
   - Sending pixel information to the ESP8266 over WiFi ([led.py](python/led.py))
   - Configuration and settings ([config.py](python/config.py))
-- Arduino firmware for the ESP8266 ([ws2812_controller.ino](arduino/ws2812_controller/ws2812_controller.ino))
+- Arduino firmware for the ESP8266 ([ws2812_controller_esp8266.ino](arduino/ws2812_controller_esp8266/ws2812_controller_esp8266.ino))
 
 # What do I need to make one?
 ## Computer + ESP8266
@@ -82,8 +82,6 @@ If `pip` is not found try using `python -m pip install` instead.
 ## Arduino dependencies
 ESP8266 firmare is uploaded using the Arduino IDE. See [this tutorial](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/installing-the-esp8266-arduino-addon) to setup the Arduino IDE for ESP8266.
 
-After installing the Arduino IDE and ESP8266 addon, use the [Arduino Library Manager](https://www.arduino.cc/en/Guide/Libraries#toc3) to install the "WebSocketServer" library.
-
 <!-- This [ws2812b i2s library](https://github.com/JoDaNl/esp8266_ws2812_i2s) must be downloaded and installed in the Arduino libraries folder.
  -->
 ## Hardware Connections
@@ -108,7 +106,7 @@ The connections are:
 
 * Connect GND on the power supply to GND on the LED strip and GND on the Raspberry Pi (they MUST share a common GND connection)
 * Connect +5V on the power supply to +5V on the LED strip
-* Connect a PWM GPIO pin on the Raspberry Pi to the data pin on the LED strip. If using the Raspberry Pi 2 or 3, then try Pin 18.
+* Connect a PWM GPIO pin on the Raspberry Pi to the data pin on the LED strip. If using the Raspberry Pi 2 or 3, then try Pin 18(GPIO5).
 
 # Setup and Configuration
 1. Install Python and Python dependencies
@@ -129,6 +127,8 @@ The connections are:
 
 # Installation for Raspberry Pi
 If you encounter any problems running the visualization on a Raspberry Pi, please [open a new issue](https://github.com/scottlawsonbc/audio-reactive-led-strip/issues). Also, please consider opening an issue if you have any questions or suggestions for improving the installation process.
+
+Download and extract all of the files in this repository onto your pi to begin.
 
 ## Installing the Python dependencies
 Install python dependencies using apt-get
